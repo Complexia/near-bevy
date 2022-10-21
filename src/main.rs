@@ -1,8 +1,10 @@
 use bevy::prelude::*;
-use components::HelloPlugin;
+use near_plugin::NearPlugin;
+
 pub mod components;
 pub mod near_plugin;
-pub mod systems;
+
+pub mod workspaces;
 fn main() {
-    App::new().add_plugin(HelloPlugin).run();
+    App::new().add_plugin(NearPlugin).run();
 }
