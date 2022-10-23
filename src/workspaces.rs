@@ -1,20 +1,13 @@
-use near_workspaces::types::SecretKey;
-use near_workspaces::AccountId;
-use near_workspaces::Contract;
-
+use near_workspaces::error::Error;
+use near_workspaces::{network::Sandbox, Contract, Worker};
 #[derive(Default, Clone)]
 pub struct NearInterface {
     pub contract: Option<Contract>,
 }
 
 impl NearInterface {
-    pub fn initialize_contract(
-        contract_account: &str,
-        account_id: &str,
-        secret_key: SecretKey,
-        block_height: i32,
-    ) {
-        let contract_account_id: AccountId = "alice.near".parse().unwrap();
-        //return contract
+    pub async fn initialize_worker() -> Result<Worker<Sandbox>, Error> {
+        let worker = near_workspaces::sandbox().await;
+        return worker;
     }
 }
